@@ -1,1 +1,1 @@
-![Uploading image.png…]()
+![Alt][Uploading image.png…]()
