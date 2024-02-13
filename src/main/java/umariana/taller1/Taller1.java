@@ -6,8 +6,11 @@ package umariana.taller1;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.Comparator;
 import mundo.Tarea;
+
 
 /**
  *
@@ -62,22 +65,25 @@ public class Taller1 {
                 
                    
                 case 2:
-                    System.out.println("MOSTRAR LA INFORMACION");
-                    
-                    
-                    System.out.println("OPCION 2");   
-                    
-                    System.out.println("***TAREAS REGISTRADAS***");
-                    for (Tarea t: misTareas)
-                    { 
-                        System.out.println("ID:"+ t.getId());
-                        System.out.println("DESCRIPCION:"+ t.getDescripcion());
-                        System.out.println("PRIORIDAD:"+ t.getPrioridad());
-                        
-                        System.out.println("todo listo");
-                        
-                    }
-                    
+                System.out.println("MOSTRAR LA INFORMACION");
+    System.out.println("OPCION 2");   
+
+    // Ordena las tareas de forma descendente por prioridad
+    Collections.sort(misTareas, new Comparator<Tarea>() {
+        @Override
+        public int compare(Tarea t1, Tarea t2) {
+            return t2.getPrioridad() - t1.getPrioridad(); // Orden descendente
+        }
+    });
+
+    System.out.println("***TAREAS REGISTRADAS***");
+    for (Tarea t: misTareas)
+    { 
+        System.out.println("ID:"+ t.getId());
+        System.out.println("DESCRIPCION:"+ t.getDescripcion());
+        System.out.println("PRIORIDAD:"+ t.getPrioridad());
+        System.out.println("todo listo");
+    }
                 break;
                         
                 case 3:
